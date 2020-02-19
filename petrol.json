@@ -1,0 +1,22 @@
+{
+    "results": [
+      {
+        "bensin95": 201.4,
+        "bensin95_discount": 198.4,
+        "company": "Atlantsolía",
+        "diesel": 183.9,
+        "diesel_discount": 180.9,
+        "geo": {
+          "lat": 65.69913,
+          "lon": -18.135231
+        },
+        "key": "ao_000",
+        "name": "Baldursnes Akureyri"
+      }
+    
+    
+    ],
+    "timestampApis": "2016-06-01T22:47:39.419",
+    "timestampPriceChanges": "2016-05-31T11:15:15.964",
+    "timestampPriceCheck": "2016-06-01T22:45:07.809"
+}

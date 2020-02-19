@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Bensínstöðvar{% endblock %}
+{% block content %}
+
+
+    {% for item in gogn['results'] %}
+    <div>
+        {% if item.key == k %}
+        <h2>Nánari upplýsingar bensínstöðvar</h2>
+        <h3>Söluaðili: {{item.company}}</h3>
+        <h3>Staður: {{item.name}}</h3>
+        <h4>Verð á 1 litra af bensíni, 95 oktan: {{ item.bensíni95}} kr.</h4>
+        <h4>Verð á 1 litra af díselolíu: {{item.diesel}} kr.</h4>
+    </div>
+    <div>
+        <h4>Staðsetning bensínstöðvar</h4>
+        <ul>
+            <li>Breíddargráða: {{item.geo.lat}}</li>
+            <li>Lengdargráða: {{item.geo.lon}}</li>
+            <a href="https://www.google.com/maps/@{{item.geo.lat}},{{item.geo.lon}},18z/">Staðsetning á (google) korti</a>
+        </ul>
+    </div>
+    {% endif %}
+    {% endfor %} 
+{% endblock %}   

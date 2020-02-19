@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Eldneytisverð á íslandi{% endblock %}
+{% block content %}
+<main class="wrapper">
+    {% set oneco = [] %}
+    {% for item in gogn['results'] %}
+        {% if item.company not in oneco %}
+            {% do oneco.append(item.company) %}           
+            <div class='box'>
+                <a href="/company/{{ item.company }}" >
+                    <img src="static/{{ item.company }}.png" title="{{ item.company }}">
+                </a>
+            </div>
+        {% endif %}
+    {% endfor %}
+</main>
+<hr>
+<div>
+    <h2>Besta verðið</h2>
+    <h4>Ódýrasta bensínverðið: {{ minP[0]}} er hjá {{ minP[1]}}, {{ minP[2]}}</h4>
+    <h4>Ódýrasta díesel olían: {%raw% }{{ minD[0] }} kr.</i> er hjá {{ minD[1] }}, {{ minD[2] }}</h4>
+    <p> </p>
+</div>   
+{% endblock %}
