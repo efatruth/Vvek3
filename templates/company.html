@@ -11,7 +11,7 @@
         <tr>
             {% if item.company == com %}
             {% do cnt.append(item.company) %}
-            <td><a href="/moreinfo/{{item.key}}">{{item.name}}</a></td>
+            <td><a href="/moreinfo/{{item.key}}">{{ item.name }}</a></td>
             {% endif %}
         </tr>
     {% endfor %}

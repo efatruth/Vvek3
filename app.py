@@ -16,7 +16,7 @@ app.jinja_env.add_extension(ext.do)
 
 # ná í tímatal síðasta uppfærsla
 def format_time(gogn):
-    return datetime.strptime(gogn, '%Y-%m-%dT%H%:M:%S.%f').strftime('%d. %m. %Y. Kl. %H:%M')
+    return datetime.strptime(gogn, '%Y-%m-%dT%H:%M:%S.%f').strftime('%d. %m. %Y. Kl. %H:%M')
 
 app.jinja_env.filters['format_time'] = format_time #filter skilgreindur
 
@@ -41,7 +41,7 @@ def minPetrol():
 #öll fyrirtæki x1
 @app.route('/')
 def home():
-    return render_template('index.html', gogn=gogn, MinP=minPetrol())
+    return render_template('index.html', gogn=gogn, minP=minPetrol())
 
 #eitt fyrirtæki - allar stöðvar
 @app.route('/company/<company>')
