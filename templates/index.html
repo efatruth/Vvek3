@@ -1,24 +1,25 @@
 {% extends "base.html" %}
-{% block title %}Eldneytisverð á íslandi{% endblock %}
+{% block title %}Eldsneytisverð - miðannarverkefni - json{% endblock %}
 {% block content %}
-<main class="wrapper">
-    {% set oneco = [] %}
-    {% for item in gogn['results'] %}
-        {% if item.company not in oneco %}
-            {% do oneco.append(item.company) %}           
-            <div class='box'>
-                <a href="/company/{{ item.company }}" >
-                    <img src="static/{{ item.company }}.png" title="{{ item.company }}">
-                </a>
-            </div>
-        {% endif %}
-    {% endfor %}
-</main>
-<hr>
-<div>
-    <h2>Besta verðið</h2>
-    <h4>Ódýrasta bensínverðið: {{ minP[0]}} er hjá {{ minP[1]}}, {{ minP[2]}}</h4>
-    <p> </p>
-</div>   
+<div class="wrapper">
+	{% set oneCo = [] %} 
+	{% for item in gogn['results'] %}	
+		{% if item.company not in oneCo %} <!-- setja "company" aðeins einu sinni -->
+			{% do oneCo.append(item.company) %}
+			<div class='box'>
+				<a href="/company/{{ item.company }}">
+					<img src="static/{{ item.company }}.png" title="{{ item.company }}">
+				</a>
+			</div>
+		{% endif %}
+	{% endfor %}
+</div>
+<div class="kort">
+	<h2>Besta verðið</h2>
+	<h4>Ódýrasta bensínið: <i>{{ minP[0] }} kr.</i> er hjá {{ minP[1] }}, {{ minP[2] }}</h4> <!-- upplýsingar um lægsta bensínið kemur í listanum minP -->
+	<h4>Ódýrasta díesel olían: <i>{{ minD[0] }} kr.</i> er hjá {{ minD[1] }}, {{ minD[2] }}</h4> <!-- upplýsingar um lægsta díselið kemur í listanum minD -->
+	<p>Síðast uppfært: {{ gogn.timestampApis | format_time }}</p>
+</div>		
 
+<p> Fyrirtækin birtast aðeins einu sinni á forsíðu</p>
 {% endblock %}

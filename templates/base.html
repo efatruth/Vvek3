@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
+    {% block head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %} {% endblock %} - VEFÞ2VF</title>
-    <link rel='stylesheet' href='/static/styles.css'>
-</head>
-<body>
-    {% include "haus.tpl" ignore missing %}
+    <link rel='stylesheet' href='/static/styles.css' />
+    <title>{% block title %}{% endblock %} - VEFÞ2VF</title>
+    {% endblock %}
+    </head>
+    <body>
+        {% include "haus.tpl" ignore missing %}
 
-        {% block content %} {% endblock %}
+        <main>{% block content %}{% endblock %}</main>
     
-    {% include "fotur.tpl" ignore missing %}
-</body>
+        {% include "fotur.tpl" ignore missing %}
+    </body>
 </html>
