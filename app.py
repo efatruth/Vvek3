@@ -1,10 +1,10 @@
 import os
-from flask import Flask,  render_template, json
+from flask import Flask,render_template,json
 import urllib.request
 from jinja2 import ext
 from datetime import datetime
 
- 
+
 app = Flask(__name__)
 
 # ná í petrol á apis.is
@@ -52,7 +52,7 @@ def comp(company):
 #bensínstöð fyrirtækis
 @app.route('/moreinfo/<key>')
 def info(key):
-    return render_template('moreinfo', gogn=gogn, k=key)
+    return render_template('moreinfo.html', gogn=gogn, k=key)
 
 #villuskilaborð
 @app.errorhandler(404)
@@ -60,4 +60,4 @@ def pagenotfound(error):
     return render_template('pagenotfound.html'), 404
 
 if __name__== '__main__':
-    app.run(debug=True)
+    app.run()
