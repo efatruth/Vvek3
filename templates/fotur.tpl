@@ -1,4 +1,5 @@
 <hr>
 <footer class='fotur'>
-	<p>&copy; 2019 <a href="https://tskoli.github.io/">Tölvubraut tækniskólans</a></p>
+	<h5>&copy; Copyright 2020 <a href="https://github.com/efatruth/Vvek3">Livinus Felix .B.</a> <a href="https://tskoli.github.io/"> Tölvubraut tækniskólans</a> </h5>
+	
 </footer>
